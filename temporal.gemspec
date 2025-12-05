@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/ruby/temporal/version"
+require_relative "lib/temporal/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-temporal"
-  spec.version = Ruby::Temporal::VERSION
+  spec.version = Temporal::VERSION
   spec.authors = ["Leonardo Prado"]
   spec.email = ["leoprado@paypal.com"]
 
