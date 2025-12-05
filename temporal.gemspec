@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "ruby-temporal"
   spec.version = Temporal::VERSION
   spec.authors = ["Leonardo Prado"]
-  spec.email = ["leoprado@paypal.com"]
+  spec.email = ["leonardoprado@gmail.com"]
 
   spec.summary = "TODO: Write a short summary, because RubyGems requires one."
   spec.description = "TODO: Write a longer description or delete this line."
