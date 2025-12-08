@@ -7,8 +7,10 @@ gemspec
 
 gem "irb"
 gem "rake", "~> 13.0"
+gem "pry-byebug"
 
 gem "minitest", "~> 5.16"
+gem 'minitest-reporters'
 
 gem "rubocop"
 gem "rubocop-minitest"
