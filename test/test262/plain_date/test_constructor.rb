@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require "temporal/plain_date"
-
-require "test_helper"
+require_relative "plain_date_helper"
 
 # Basic tests for the PlainDate constructor
 #

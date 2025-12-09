@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require "temporal/plain_date"
-
-require "test_helper"
+require_relative "plain_date_helper"
 
 # PlainDate constructor with non-integer arguments
 #
@@ -24,13 +22,7 @@ class Temporal::PlainDate::ArgumentConversion < Minitest::Test
     define_method("test_#{name}") do
       year, month, day, expected_year = data
 
-      subject = Temporal::PlainDate.new(year, month, day)
-
-      assert_equal(subject.era_year, expected_year)
-      assert_equal(subject.year, expected_year)
-      assert_equal(:M11, subject.month_code)
-      assert_equal(11, subject.month)
-      assert_equal(24, subject.day)
+      assert_valid_plain_date(year, month, day, expected_year, 11, 24)
     end
   end
 

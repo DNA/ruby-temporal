@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require "temporal/plain_date"
-
-require "test_helper"
+require_relative "plain_date_helper"
 
 # PlainDate constructor with invalid iso dates
 #
@@ -24,7 +22,7 @@ class Temporal::PlainDate::ArgumentInvalid < Minitest::Test
     define_method("test_#{name}") do
       year, month, day = data
 
-      assert_raises { Temporal::PlainDate.new(year, month, day) }
+      assert_raises(RangeError) { Temporal::PlainDate.new(year, month, day) }
     end
   end
 end

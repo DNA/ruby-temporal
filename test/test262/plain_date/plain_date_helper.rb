@@ -1,12 +1,23 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "temporal"
+require "temporal/plain_date"
 
-require "minitest/autorun"
-require "minitest/pride"
-require "minitest/reporters"
+def assert_valid_plain_date( # rubocop:disable Metics/ParameterLists
+  year,
+  month,
+  day,
+  expected_year = year,
+  expected_month = month,
+  expected_day = day,
+  calendar_id: nil
+)
+  subject = Temporal::PlainDate.new(year, month, day)
+  expected_calendar = calendar_id || :iso8601
 
-# Minitest::Reporters.use!
-
-# Minitest::Test.parallelize_me!
+  assert_equal(expected_calendar, subject.calendar_id)
+  assert_equal(expected_year, subject.era_year)
+  assert_equal(expected_year, subject.year)
+  assert_equal(:"#{format("M%02d", expected_month)}", subject.month_code)
+  assert_equal(expected_month, subject.month)
+  assert_equal(expected_day, subject.day)
+end
