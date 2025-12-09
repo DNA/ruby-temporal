@@ -24,9 +24,11 @@ module Temporal
       self.month = month
       self.day = day
       @calendar_id = calendar_id || :iso8601
+
+      raise RangeError if min_date_overflow? || max_date_overflow?
     end
 
-    def month_code = :"M#{month}"
+    def month_code = :"#{format("M%02d", month)}"
 
     def era_year = year
 
@@ -70,6 +72,20 @@ module Temporal
       @day = value
     rescue ArgumentError, NoMethodError => e
       raise TypeError, "Day can't be converted into integer", cause: e
+    end
+
+    def min_date_overflow?
+      return false unless year <= -271_821
+
+      limit = format("-%<year>06d-%<month>02d-%<day>02d", year: @year.abs, month: @month, day: @day)
+
+      limit <= "-271821-04-18"
+    end
+
+    def max_date_overflow?
+      @year >= 275_760 &&
+        @month >= 9 &&
+        @day >= 14
     end
   end
 end
