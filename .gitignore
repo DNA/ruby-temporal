@@ -6,3 +6,6 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+test/test262/built-in/
+test/test262/intl402/
