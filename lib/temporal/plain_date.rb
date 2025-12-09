@@ -2,7 +2,7 @@
 
 module Temporal
   class PlainDate
-    attr_reader :year, :month, :day
+    attr_reader :year, :month, :day, :calendar_id
 
     DAYS_IN_MONTH = {
       1 => 31,
@@ -19,10 +19,11 @@ module Temporal
       12 => 31,
     }.freeze
 
-    def initialize(year, month, day)
+    def initialize(year, month, day, calendar_id = nil)
       self.year = year
       self.month = month
       self.day = day
+      @calendar_id = calendar_id || :iso8601
     end
 
     def month_code = :"M#{month}"
