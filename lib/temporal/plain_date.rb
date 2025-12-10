@@ -19,11 +19,11 @@ module Temporal
       12 => 31,
     }.freeze
 
-    def initialize(year, month, day, calendar_id = nil)
+    def initialize(year, month, day, calendar_id: nil)
       self.year = year
       self.month = month
       self.day = day
-      @calendar_id = calendar_id || :iso8601
+      self.calendar_id = calendar_id
 
       raise RangeError if min_date_overflow? || max_date_overflow?
     end
@@ -72,6 +72,19 @@ module Temporal
       @day = value
     rescue ArgumentError, NoMethodError => e
       raise TypeError, "Day can't be converted into integer", cause: e
+    end
+
+    def calendar_id=(value)
+      value = case value
+              in Symbol then value
+              in String then value.to_sym
+              in NilClass then :iso8601
+              else raise RangeError
+              end
+
+      raise RangeError if value != :iso8601
+
+      @calendar_id = value
     end
 
     def min_date_overflow?

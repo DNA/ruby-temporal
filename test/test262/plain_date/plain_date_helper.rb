@@ -9,10 +9,11 @@ def assert_valid_plain_date( # rubocop:disable Metics/ParameterLists
   expected_year = year,
   expected_month = month,
   expected_day = day,
-  calendar_id: nil
+  calendar_id: nil,
+  expected_calendar_id: nil
 )
   subject = Temporal::PlainDate.new(year, month, day)
-  expected_calendar = calendar_id || :iso8601
+  expected_calendar = expected_calendar_id || calendar_id || :iso8601
 
   assert_equal(expected_calendar, subject.calendar_id)
   assert_equal(expected_year, subject.era_year)
