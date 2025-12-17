@@ -22,3 +22,17 @@ def assert_valid_plain_date( # rubocop:disable Metics/ParameterLists
   assert_equal(expected_month, subject.month)
   assert_equal(expected_day, subject.day)
 end
+
+def assert_plain_date_values(
+  plain_date,
+  year,
+  month,
+  month_code,
+  day
+)
+  assert_equal(year, plain_date.era_year)
+  assert_equal(year, plain_date.year)
+  assert_equal(month, plain_date.month)
+  assert_equal(month_code, plain_date.month_code)
+  assert_equal(day, plain_date.day)
+end
