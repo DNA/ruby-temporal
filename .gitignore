@@ -9,3 +9,4 @@
 
 test/test262/built-in/
 test/test262/intl402/
+test/**/*.js
