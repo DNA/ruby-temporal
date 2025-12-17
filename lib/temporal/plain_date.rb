@@ -24,9 +24,16 @@ module Temporal
       values = hash.merge kwargs
       raise ArgumentError if values.empty?
 
-      valid_keys = %i[years months weeks days hours minutes
-                      seconds milliseconds microseconds nanoseconds]
-      raise ArgumentError unless values.keys.intersect? valid_keys
+      unit_keys = %i[years months weeks days hours minutes
+                     seconds milliseconds microseconds nanoseconds]
+
+      units = values.slice(*unit_keys)
+
+      raise ArgumentError, "No valid unit found" if units.empty?
+
+      raise RangeError, "Can't mix positive and negative numbers" unless
+        units.values.reject(&:zero?).all?(&:positive?) ||
+        units.values.reject(&:zero?).all?(&:negative?)
 
       @day += values[:days] || 0
       @month += values[:months] || 0

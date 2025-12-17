@@ -11,10 +11,6 @@ require_relative "../../plain_date_helper"
 #   features: [Temporal]
 module Temporal::TestPlainDate
   class Add < Minitest::Test
-    def subject
-      Temporal::PlainDate.new(2000, 5, 2)
-    end
-
     def test_hash_empty
       assert_raises(ArgumentError) { subject.add({}) }
     end

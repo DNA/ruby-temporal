@@ -13,10 +13,6 @@ require_relative "../../plain_date_helper"
 #   features: [Temporal]
 module Temporal::TestPlainDate
   class Add < Minitest::Test
-    def subject
-      Temporal::PlainDate.new(2000, 5, 2)
-    end
-
     def test_optional_arguments
       result_single = subject.add(hours: 1)
       result_full = subject.add(

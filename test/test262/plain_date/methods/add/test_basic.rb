@@ -23,11 +23,11 @@ module Temporal::TestPlainDate
       negative_month: [[2019, 2, 28], { months: -1 }, 2019, 1, :M01, 28],
     }.each do |name, data|
       define_method "test_#{name}" do
-        date, arguments, year, month, month_code, day = data
+        units, arguments, year, month, month_code, day = data
 
-        subject = Temporal::PlainDate.new(*date).add(arguments)
+        added_date = subject(*units).add(arguments)
 
-        assert_plain_date_values(subject, year, month, month_code, day)
+        assert_plain_date_values(added_date, year, month, month_code, day)
       end
     end
 

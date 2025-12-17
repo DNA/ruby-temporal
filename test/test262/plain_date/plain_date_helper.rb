@@ -5,6 +5,10 @@ require_relative "../../test_helper"
 
 module Temporal::TestPlainDate; end
 
+def subject(year = 2000, month = 5, day = 2)
+  Temporal::PlainDate.new(year, month, day)
+end
+
 def assert_valid_plain_date( # rubocop:disable Metics/ParameterLists
   year,
   month,
