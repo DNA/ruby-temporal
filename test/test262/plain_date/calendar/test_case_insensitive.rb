@@ -9,8 +9,8 @@ require_relative "../plain_date_helper"
 #   esid: sec-temporal.plaindate
 #   description: Calendar names are case-insensitive
 #   features: [Temporal]
-module Temporal::PlainDate::Calendar
-  class CaseInsensitive < Minitest::Test
+module Temporal::TestPlainDate
+  class Calendar < Minitest::Test
     def test_calendar_uppercase
       assert_valid_plain_date(2020, 1, 1, calendar_id: "ISO8601", expected_calendar_id: :iso8601)
     end

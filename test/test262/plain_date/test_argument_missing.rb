@@ -10,8 +10,10 @@ require_relative "plain_date_helper"
 #   description: RangeError thrown when constructor invoked with no argument
 #   includes: [compareArray.js]
 #   features: [Temporal]
-class Temporal::PlainDate::Missing < Minitest::Test
-  def test_raise_on_missing_params
-    assert_raises(ArgumentError) { Temporal::PlainDate.new }
+module Temporal::TestPlainDate
+  class Constructor < Minitest::Test
+    def test_raise_on_missing_params
+      assert_raises(ArgumentError) { Temporal::PlainDate.new }
+    end
   end
 end

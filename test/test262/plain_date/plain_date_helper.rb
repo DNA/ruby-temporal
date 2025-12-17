@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require "temporal/plain_date"
+require_relative "../../test_helper"
+
+module Temporal::TestPlainDate; end
 
 def assert_valid_plain_date( # rubocop:disable Metics/ParameterLists
   year,

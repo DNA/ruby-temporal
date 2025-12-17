@@ -10,8 +10,8 @@ require_relative "../../plain_date_helper"
 #   description: Basic tests
 #   includes: [temporalHelpers.js]
 #   features: [Temporal]
-module Temporal::PlainDate::Add
-  class BasicTest < Minitest::Test
+module Temporal::TestPlainDate
+  class Add < Minitest::Test
     {
       year: [[1976, 11, 18], { years: 43 }, 2019, 11, :M11, 18],
       months: [[1976, 11, 18], { months: 3 }, 1977, 2, :M02, 18],

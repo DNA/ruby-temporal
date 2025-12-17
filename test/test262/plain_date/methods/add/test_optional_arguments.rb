@@ -11,8 +11,8 @@ require_relative "../../plain_date_helper"
 #     A property bag missing optional properties is equivalent to a property bag
 #     with all the optional properties having their default values
 #   features: [Temporal]
-module Temporal::PlainDate::Add
-  class OptionalArguments < Minitest::Test
+module Temporal::TestPlainDate
+  class Add < Minitest::Test
     def subject
       Temporal::PlainDate.new(2000, 5, 2)
     end

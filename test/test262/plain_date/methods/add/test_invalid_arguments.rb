@@ -9,8 +9,8 @@ require_relative "../../plain_date_helper"
 #   esid: sec-temporal.plaindate.prototype.add
 #   description: Passing a primitive other than string to add() throws
 #   features: [Symbol, Temporal]
-module Temporal::PlainDate::Add
-  class InvalidArguments < Minitest::Test
+module Temporal::TestPlainDate
+  class Add < Minitest::Test
     def subject
       Temporal::PlainDate.new(2000, 5, 2)
     end

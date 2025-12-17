@@ -9,8 +9,8 @@ require_relative "../plain_date_helper"
 #   esid: sec-temporal.plaindate.constructor
 #   description: Various invalid ISO string values for calendar
 #   features: [Temporal]
-module Temporal::PlainDate::Calendar
-  class InvalidIsoString < Minitest::Test
+module Temporal::TestPlainDate
+  class Calendar < Minitest::Test
     {
       empty_string: "",
       iso_string_with_calendar: "1997-12-04[u-ca=iso8601]",

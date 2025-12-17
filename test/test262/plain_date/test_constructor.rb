@@ -11,8 +11,10 @@ require_relative "plain_date_helper"
 #   info: |
 #       1. If NewTarget is undefined, throw a TypeError exception.
 #   features: [Temporal]
-class Temporal::PlainDate::Constructor < Minitest::Test
-  def test_raise_on_direct_call
-    assert_raises(NoMethodError) { Temporal::PlainDate(2021, 12, 22, :iso8601) }
+module Temporal::TestPlainDate
+  class Constructor < Minitest::Test
+    def test_raise_on_direct_call
+      assert_raises(NoMethodError) { Temporal::PlainDate(2021, 12, 22, :iso8601) }
+    end
   end
 end

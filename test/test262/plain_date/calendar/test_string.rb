@@ -9,8 +9,8 @@ require_relative "../plain_date_helper"
 #   esid: sec-temporal.plaindate.constructor
 #   description: A calendar ID is valid input for Calendar
 #   features: [Temporal]
-module Temporal::PlainDate::Calendar
-  class String < Minitest::Test
+module Temporal::TestPlainDate
+  class Calendar < Minitest::Test
     def test_calendar_with_string_argument
       assert_valid_plain_date(2020, 1, 1, calendar_id: "iso8601", expected_calendar_id: :iso8601)
     end

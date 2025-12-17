@@ -9,8 +9,8 @@ require_relative "../../plain_date_helper"
 #   esid: sec-temporal.plaindate.prototype.add
 #   description: temporalDurationLike object must contain at least one correctly spelled property
 #   features: [Temporal]
-module Temporal::PlainDate::Add
-  class InvalidKeys < Minitest::Test
+module Temporal::TestPlainDate
+  class Add < Minitest::Test
     def subject
       Temporal::PlainDate.new(2000, 5, 2)
     end
