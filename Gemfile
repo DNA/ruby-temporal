@@ -6,11 +6,12 @@ source "https://rubygems.org"
 gemspec
 
 gem "irb"
-gem "rake", "~> 13.0"
 gem "pry-byebug"
+gem "rake", "~> 13.0"
 
-gem "minitest", "~> 5.16"
-gem 'minitest-reporters'
+gem "minitest", "~> 6"
+gem "minitest-reporters"
+gem "minitest-sprint", "~> 1.5"
 
 gem "rubocop"
 gem "rubocop-minitest"
