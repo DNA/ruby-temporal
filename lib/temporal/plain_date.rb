@@ -14,7 +14,9 @@ module Temporal
 
     def month_code = :"#{format("M%02d", month)}"
 
-    def era_year = year
+    def era_year = nil
+
+    def era = nil
 
     def leap_year? = (year % 4).zero?
 
@@ -53,7 +55,7 @@ module Temporal
     def calendar_id=(value)
       value = case value
               in Symbol then value
-              in String then value.to_sym
+              in String then value.downcase.to_sym
               in NilClass then :iso8601
               else raise RangeError
               end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "temporal/version"
+require_relative "temporal/duration"
 require_relative "temporal/plain_date"
 require_relative "temporal/units/base"
 require_relative "temporal/units/day"

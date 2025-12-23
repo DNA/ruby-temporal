@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
-require_relative "plain_date_helper"
-
-# PlainDate throws a RangeError if any value is Infinity
+# Original comment
 #
-# @note test262 info
-#   original: test/test262/built-in/PlainDate/limits.js
-#   esid: sec-temporal.plaindate
-#   description: Limits for the PlainDate constructor.
-#   includes: [temporalHelpers.js]
-#   features: [Temporal]
+# /*---
+# esid: sec-temporal.plaindate
+# description: Limits for the PlainDate constructor.
+# includes: [temporalHelpers.js]
+# features: [Temporal]
+# ---*/
+
+require_relative "../../../test_helper"
+
 module Temporal::TestPlainDate
   class Constructor < Minitest::Test
     def test_raise_after_max_negative_date
