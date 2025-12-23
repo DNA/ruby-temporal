@@ -4,7 +4,7 @@ plugins:
   - rubocop-rake
 
 AllCops:
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.3
   NewCops: enable
 
 Style/StringLiterals:
@@ -16,6 +16,9 @@ Style/StringLiteralsInInterpolation:
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: diff_comma
 
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: diff_comma
+
 # Don't care about Metrics during initial development
 Metrics/MethodLength:
   Enabled: false
@@ -24,4 +27,10 @@ Style/Documentation:
   Enabled: false
 
 Style/ClassAndModuleChildren:
+  Enabled: false
+
+Lint/ItWithoutArgumentsInBlock:
+  Enabled: false
+
+Metrics/ParameterLists:
   Enabled: false
