@@ -209,13 +209,15 @@ def assert_plain_date_time(datetime,
 
   assert_kind_of Temporal::PlainDateTime, datetime, "#{prefix}instanceof"
 
-  assert_equal(
-    canonicalize_calendar_era(datetime.calendar_id, era),
-    canonicalize_calendar_era(datetime.calendar_id, datetime.era),
-    "#{prefix}era result:"
-  )
+  assert_nil(canonicalize_calendar_era(datetime.calendar_id, era), "#{prefix}era result:")
+  assert_nil(canonicalize_calendar_era(datetime.calendar_id, datetime.era), "#{prefix}era result:")
 
-  assert_equal era_year,    datetime.era_year,    "#{prefix}era_year result:"
+  if era_year.nil?
+    assert_nil datetime.era_year, "#{prefix}era_year result:"
+  else
+    assert_equal era_year, datetime.era_year, "#{prefix}era_year result:"
+  end
+
   assert_equal year,        datetime.year,        "#{prefix}year result:"
   assert_equal month,       datetime.month,       "#{prefix}month result:"
   assert_equal month_code,  datetime.month_code,  "#{prefix}month_code result:"
