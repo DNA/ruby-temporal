@@ -18,8 +18,6 @@ module Temporal
 
     def era = nil
 
-    def leap_year? = (year % 4).zero?
-
     def add(hash = {}, **kwargs)
       raise ArgumentError unless hash.instance_of? Hash
 

@@ -4,28 +4,26 @@ module Temporal::Units
   class Month < Base
     attr_reader :lower
 
-    DAYS_IN_MONTH = {
-      1 => 31,
-      2 => 28,
-      3 => 31,
-      4 => 30,
-      5 => 31,
-      6 => 30,
-      7 => 31,
-      8 => 31,
-      9 => 30,
-      10 => 31,
-      11 => 30,
-      12 => 31,
-    }.freeze
-
-    def initialize(value, upper)
-      @upper = upper
+    def initialize(value, year = nil)
+      @year = year
 
       super(value)
     end
 
-    def max_day = DAYS_IN_MONTH[@value]
+    def on_leap_year? = @year.nil? || (@year.respond_to?(:leap?) && @year.leap?)
+
+    def max_day
+      case [@value, on_leap_year?]
+      in [1 | 3 | 5 | 7 | 8 | 10 | 12, *]
+        31
+      in [4 | 6 | 9 | 11, *]
+        30
+      in [2, true]
+        29
+      in [2, false]
+        28
+      end
+    end
 
     def lower=(unit)
       @lower = case unit
@@ -41,10 +39,10 @@ module Temporal::Units
 
       @value = case sum
                when (..0)
-                 @upper = @upper.send(:-, 1, inplace: true)
+                 @year = @year.send(:-, 1, inplace: true)
                  12 - sum.abs
                when (13..)
-                 @upper = @upper.send(:+, 1, inplace: true)
+                 @year = @year.send(:+, 1, inplace: true)
                  sum - 12
                else
                  sum
@@ -64,10 +62,10 @@ module Temporal::Units
 
       @value = case sum
                when (..0)
-                 @upper = @upper.send(:+, 1, inplace: true)
+                 @year = @year.send(:+, 1, inplace: true)
                  12 + sum
                when (13..)
-                 @upper = @upper.send(:-, 1, inplace: true)
+                 @year = @year.send(:-, 1, inplace: true)
                  sum - 12
                else
                  sum
@@ -79,7 +77,7 @@ module Temporal::Units
         @lower += diff
       end
 
-      self.class.new(sum, @upper)
+      self.class.new(sum, @year)
     end
 
     private

@@ -2,6 +2,8 @@
 
 module Temporal::Units
   class Year < Base
+    def leap? = (@value % 4).zero?
+
     def +(other, inplace: true)
       result = @value + other
 
