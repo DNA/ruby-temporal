@@ -20,8 +20,7 @@ module Temporal::TestPlainDateTime
     end
 
     def test_implicit_nil
-      datetime = Temporal::PlainDateTime.new(2020, 12, 24, 12, 34, 56, 123, 456, 789,
-                                             calendar_id: nil)
+      datetime = Temporal::PlainDateTime.new(2020, 12, 24, 12, 34, 56, 123, 456, 789)
 
       assert_equal(:iso8601, datetime.calendar_id, "calendar ID is iso8601")
     end
