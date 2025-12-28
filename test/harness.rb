@@ -318,18 +318,20 @@ def assert_plain_year_month(year_month, year, month, month_code,
 
   assert_kind_of Temporal::PlainYearMonth, year_month, "#{prefix}instanceof"
 
-  assert_equal(
-    canonicalize_calendar_era(year_month.calendar_id, era),
-    canonicalize_calendar_era(year_month.calendar_id, year_month.era),
-    "#{prefix}era result:"
-  )
+  assert_nil(canonicalize_calendar_era(year_month.calendar_id, era), "#{prefix}era result:")
+  assert_nil(canonicalize_calendar_era(year_month.calendar_id, year_month.era), "#{prefix}era result:")
 
-  iso_day = year_month.to_s(calendar_name: "always")[1..].split("-")[2][0..1].to_i
+  if era_year.nil?
+    assert_nil year_month.era_year, "#{prefix}era_year result:"
+  else
+    assert_equal era_year, year_month.era_year, "#{prefix}era_year result:"
+  end
 
-  assert_equal era_year,   year_month.era_year,   "#{prefix}era_year result:"
   assert_equal year,       year_month.year,       "#{prefix}year result:"
   assert_equal month,      year_month.month,      "#{prefix}month result:"
   assert_equal month_code, year_month.month_code, "#{prefix}month_code result:"
+
+  iso_day = year_month.to_s(calendar_name: :always).split(/[-\[]/)[-3].to_i
 
   expected_iso_day = reference_iso_day || year_month
                      .to_plain_date(day: 1)
