@@ -34,3 +34,9 @@ Lint/ItWithoutArgumentsInBlock:
 
 Metrics/ParameterLists:
   Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
