@@ -8,6 +8,8 @@ This gem aims to be a direct implementation of the original spec, with only smal
 
 To achieve this, I'm converting all specs from [test262 repo](https://github.com/tc39/test262), with the exception of languiage specific tests, like `prototype`, for example.
 
+Last checked commit: `d8d4c064`
+
 The planned tests are the following:
 
 | Original test path | Path on gem tests|
