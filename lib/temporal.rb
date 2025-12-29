@@ -11,6 +11,7 @@ require_relative "temporal/units/base"
 require_relative "temporal/units/day"
 require_relative "temporal/units/month"
 require_relative "temporal/units/year"
+require_relative "temporal/zoned_date_time"
 
 module Temporal
   class Error < StandardError; end
