@@ -22,6 +22,13 @@ Style/TrailingCommaInArrayLiteral:
 Naming/MethodParameterName:
   AllowedNames:
     - tz
+    - to
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+
+Lint/DuplicateBranch:
+  IgnoreDuplicateElseBranch: true
 
 # Don't care about Metrics during initial development
 Metrics/MethodLength:
