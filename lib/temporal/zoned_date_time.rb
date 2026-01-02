@@ -50,7 +50,7 @@ module Temporal
     def offset = "+00:00"
     def offset_nanoseconds = 0
 
-    def time_zone_id = @timezone.upcase.to_sym
+    def time_zone_id = @timezone.upcase
 
     def to_s = "#{@time.inspect[..-5]}+00:00[UTC]".tr(" ", "T")
 
@@ -59,7 +59,7 @@ module Temporal
     def timezone=(value)
       @timezone = case value
                   in "a".."i" | "k".."z" | "utc" | "UTC"
-                    value.upcase.to_sym
+                    value.upcase
                   in /(\+|-)\d\d:\d\d/
                     value
                   else

@@ -15,7 +15,7 @@ module Temporal::TestZonedDateTime
     def test_case_insensitive
       date = Temporal::ZonedDateTime.new(0, tz: "uTc")
 
-      assert_equal(:UTC, date.time_zone_id)
+      assert_equal("UTC", date.time_zone_id)
     end
   end
 end

@@ -2,6 +2,7 @@
 
 require_relative "temporal/duration"
 require_relative "temporal/instant"
+require_relative "temporal/now"
 require_relative "temporal/plain_date"
 require_relative "temporal/plain_date_time"
 require_relative "temporal/plain_month_day"

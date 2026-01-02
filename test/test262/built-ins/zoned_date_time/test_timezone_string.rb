@@ -15,13 +15,13 @@ module Temporal::TestZonedDateTime
     def test_tz_name
       date = Temporal::ZonedDateTime.new(0, tz: "utc")
 
-      assert_equal(:UTC, date.time_zone_id)
+      assert_equal("UTC", date.time_zone_id)
     end
 
     def test_tz_hour_minute
       date = Temporal::ZonedDateTime.new(0, tz: "+01:30")
 
-      assert_equal(:"+01:30", date.time_zone_id)
+      assert_equal("+01:30", date.time_zone_id)
     end
   end
 end

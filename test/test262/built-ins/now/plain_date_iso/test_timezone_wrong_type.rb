@@ -3,16 +3,16 @@
 # Original comment
 #
 # /*---
-# esid: sec-temporal.zoneddatetime
+# esid: sec-temporal.now.plaindateiso
 # description: >
 #   Appropriate error thrown when argument cannot be converted to a valid string
 #   for time zone
 # features: [BigInt, Symbol, Temporal]
 # ---*/
 
-require_relative "../../../test_helper"
+require_relative "../../../../test_helper"
 
-module Temporal::TestZonedDateTime
+module Temporal::Now::TestPlainDateISO
   class Timezone < Minitest::Test
     {
       nil:                nil,
@@ -21,10 +21,12 @@ module Temporal::TestZonedDateTime
       invalid_iso_string: 1,
       iso_string:         19_761_118,
       bigint:             (1 << 64) + 1,
+      object:             self,
+      duration:           Temporal::Duration.new,
     }.each do |name, value|
       define_method("test_#{name}") do
         assert_raises(RangeError) do
-          Temporal::ZonedDateTime.new(0, tz: value)
+          Temporal::Now.plain_date_iso(tz: value)
         end
       end
     end
