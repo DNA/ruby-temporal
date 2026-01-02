@@ -36,8 +36,8 @@ require_relative "../../../test_helper"
 module Temporal::TestDuration
   class Constructor < Minitest::Test
     {
-      symbol: :foo,
-      array: [],
+      symbol:  :foo,
+      array:   [],
       boolean: false,
     }.each do |name, invalid|
       define_method "test_invalid_#{name}" do

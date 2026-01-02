@@ -15,15 +15,15 @@ require_relative "../../../test_helper"
 module Temporal::TestPlainDate
   class Calendar < Minitest::Test
     {
-      boolean: true,
-      number: 1,
-      bigint: (1 << 64) + 1,
-      negative_number: -19_761_118,
+      boolean:               true,
+      number:                1,
+      bigint:                (1 << 64) + 1,
+      negative_number:       -19_761_118,
       large_positive_number: 19_761_118,
-      large_integer: 1_234_567_890,
-      array: [],
-      object: self,
-      duration_instance: Temporal::Duration.new(0, 0, 0, 0, 0, 0, 0),
+      large_integer:         1_234_567_890,
+      array:                 [],
+      object:                self,
+      duration_instance:     Temporal::Duration.new(0, 0, 0, 0, 0, 0, 0),
     }.each do |name, value|
       define_method("test_#{name}") do
         assert_raises(RangeError) { Temporal::PlainDate.new(2020, 1, 1, calendar_id: value) }

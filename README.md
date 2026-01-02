@@ -1,14 +1,14 @@
 # Ruby Temporal
 
-This gem is a implementation of ECMAScript Temporal API.
+This gem is a implementation of TC39 Temporal API.
 
 ## Specification
 
-This gem aims to be a direct implementation of the original spec, with only small changes to adapt it to Ruby sintx and idioms.
+This gem aims to be a direct implementation from the original spec, with only small changes to adapt it to Ruby sinatx and idioms.
 
-To achieve this, I'm converting all specs from [test262 repo](https://github.com/tc39/test262), with the exception of languiage specific tests, like `prototype`, for example.
+To achieve this, we are using as a base all specs from [test262 repo](https://github.com/tc39/test262). We converted their logic from JavaScript to Ruby using minitest with the exception of languiage specific tests, like `prototype`, for example.
 
-Last checked commit: `d8d4c064`
+The tests are being created using commit `d8d4c064` as reference. Changes from later commits will be added after the initial implementation is completed.
 
 The planned tests are the following:
 
@@ -16,17 +16,6 @@ The planned tests are the following:
 | --- | --- |
 | test/built-ins/Temporal | test/test262/built-ins/ |
 | test/intl402/Temporal   | test/test262/intl402/   |
-
-The following test may be added later if relevant:
-```
-test/built-ins/Date/prototype/toTemporalInstant
-test/staging/Temporal
-test/staging/sm/Temporal
-test/staging/sm/Date/to-temporal-instant.js
-test/staging/Intl402/Temporal
-harness/sm/non262-Temporal-PlainMonthDay-shell.js
-harness/temporalHelpers.js
-```
 
 ## Installation
 
@@ -38,13 +27,15 @@ gem install temporal
 
 ## Usage
 
-Instructions will be made after the API is defined and implemented
+Instructions will be made after the API is defined and implemented.
+
+The official usage reference from original implementation can be found on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal)
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` or `minitest` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+The objective of initial development is to implement all test262 specs. We are doing it using TDD, without specific focus on being idiomatic, performant or DRY. Those are reserved for the next step in the project.
 
 ## Contributing
 
@@ -56,4 +47,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Ruby::Temporal project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/DNA/ruby-temporal/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the ruby-temporal project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/DNA/ruby-temporal/blob/main/CODE_OF_CONDUCT.md).

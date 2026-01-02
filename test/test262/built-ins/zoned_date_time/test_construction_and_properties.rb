@@ -12,7 +12,7 @@ require_relative "../../../test_helper"
 
 module Temporal::TestZonedDateTime
   class Constructor < Minitest::Test
-    def test_basic # rubocop:disable Metrics/AbcSize
+    def test_basic
       epoch = Time.utc(1976, 11, 18, 15, 23, 30).to_i
       epoch_nanos = (epoch * 1_000_000_000) + 123_456_789
 

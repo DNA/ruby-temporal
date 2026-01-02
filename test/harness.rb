@@ -18,7 +18,6 @@ ISO_MONTHS = [
 
 # List of known calendar eras and their possible aliases.
 # https://tc39.es/proposal-intl-era-monthcode/#table-eras
-# rubocop:disable Layout/HashAlignment
 CALENDAR_ERAS = {
   buddhist:           [{ era: "be" }],
   coptic:             [{ era: "am" }],
@@ -50,8 +49,6 @@ CALENDAR_ERAS = {
   roc:                [{ era: "roc",  aliases: ["minguo"] },
                        { era: "broc", aliases: %w[before-roc minguo-qian] }],
 }.freeze
-# rubocop:enable Layout/HashAlignment
-
 # Return the canonical era code.
 def canonicalize_calendar_era(calendar_id, era_name)
   calendar_id = case calendar_id
