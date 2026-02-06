@@ -20,15 +20,7 @@ jobs:
           ruby-version: "3.3.10"
           bundler-cache: true
 
-      - name: Build gem
-        run: gem build temporal.gemspec
-
       - name: Publish to RubyGems
-        run: |
-          mkdir -p $HOME/.gem
-          touch $HOME/.gem/credentials
-          chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-          gem push *.gem --host https://rubygems.org
-        env:
-          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        uses: rubygems/release-gem@v1
+        with:
+          api-key: ${{ secrets.RUBYGEMS_API_KEY }}
