@@ -20,5 +20,12 @@ jobs:
           ruby-version: "3.3.10"
           bundler-cache: true
 
-      - name: Publish to RubyGems
-        uses: rubygems/release-gem@v1
+      - name: Configure RubyGems credentials
+        uses: rubygems/configure-rubygems-credentials@main
+        with:
+          role-to-assume: rp_
+
+      - name: Build and publish gem
+        run: |
+          gem build temporal.gemspec
+          gem push *.gem
