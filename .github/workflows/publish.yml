@@ -22,8 +22,6 @@ jobs:
 
       - name: Configure RubyGems credentials
         uses: rubygems/configure-rubygems-credentials@main
-        with:
-          role-to-assume: rp_
 
       - name: Build and publish gem
         run: |
