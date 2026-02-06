@@ -28,6 +28,6 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - name: Minitest
-        run: minitest
+        run: bundle exec minitest
       - name: Rubocop
-        run: rubocop
+        run: bundle exec rubocop
